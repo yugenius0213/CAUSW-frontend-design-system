@@ -133,7 +133,9 @@ pnpm release
 
 main 브랜치에 push하면:
 - Changesets가 자동으로 버전 업데이트 PR 생성
-- PR 병합 시 자동으로 npm에 배포 (NPM_TOKEN 설정 필요)
+- PR 병합 시 자동으로 npm에 배포 (Trusted Publishing 사용)
+
+**배포 설정:** [DEPLOYMENT.md](./DEPLOYMENT.md) 참고
 
 ## 기여하기
 

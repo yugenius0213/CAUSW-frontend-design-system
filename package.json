@@ -12,7 +12,7 @@
     "build-storybook": "storybook build",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build && changeset publish"
+    "release": "turbo run build && changeset publish --provenance"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",

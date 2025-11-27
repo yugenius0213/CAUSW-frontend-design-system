@@ -335,8 +335,17 @@ rm .changeset/funny-pandas-jump.md
 code .changeset/funny-pandas-jump.md
 ```
 
+## 배포 설정
+
+프로젝트는 **Trusted Publishing**을 사용하여 npm에 배포됩니다.
+
+NPM 토큰 없이도 안전하게 배포할 수 있습니다!
+
+자세한 설정 방법은 [DEPLOYMENT.md](./DEPLOYMENT.md)를 참고하세요.
+
 ## 참고 자료
 
 - [Changesets 공식 문서](https://github.com/changesets/changesets)
 - [Semantic Versioning](https://semver.org/lang/ko/)
 - [Conventional Commits](https://www.conventionalcommits.org/)
+- [npm Trusted Publishing](https://docs.npmjs.com/generating-provenance-statements)
