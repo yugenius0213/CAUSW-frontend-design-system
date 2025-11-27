@@ -40,10 +40,9 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm release
+          publish: npx changeset publish --provenance
           version: pnpm version-packages
           commit: 'release: bump version packages'
           title: 'Release: Version Packages'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true  # Trusted Publishing 활성화
