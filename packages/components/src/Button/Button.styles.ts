@@ -1,5 +1,3 @@
-import { colors, spacing, typography } from '@causw/tokens';
-
 interface ButtonStylesProps {
   variant: 'primary' | 'secondary' | 'outline';
   size: 'sm' | 'md' | 'lg';
