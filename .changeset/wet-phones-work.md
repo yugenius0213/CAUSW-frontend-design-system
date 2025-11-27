@@ -1,0 +1,5 @@
+---
+"@causw/icons": major
+---
+
+test
