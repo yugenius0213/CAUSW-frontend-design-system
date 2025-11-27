@@ -1,7 +1,7 @@
 {
   "name": "@causw/icons",
   "version": "0.0.0",
-  "description": "Icon components for CAUSW Design System",
+  "description": "Icon components for CAUSW Design System - CAU Software Community Service",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
