@@ -38,6 +38,11 @@
     "typescript": "^5.3.0",
     "vitest": "^1.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CAUCSE/CAUSW-frontend-design-system.git",
+    "directory": "packages/components"
+  },
   "publishConfig": {
     "access": "public",
     "provenance": true

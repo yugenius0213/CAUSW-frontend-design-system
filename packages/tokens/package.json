@@ -25,6 +25,11 @@
     "tsup": "^8.0.0",
     "typescript": "^5.3.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CAUCSE/CAUSW-frontend-design-system.git",
+    "directory": "packages/tokens"
+  },
   "publishConfig": {
     "access": "public",
     "provenance": true
