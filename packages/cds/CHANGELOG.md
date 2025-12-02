@@ -1,5 +1,12 @@
 # @causw/design-system
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [1b169c1]
+  - @causw/icons@0.0.2
+
 ## 0.0.3
 
 ### Patch Changes
