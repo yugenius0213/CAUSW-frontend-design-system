@@ -23,9 +23,7 @@
 
 ## 🧪 Test & Verification
 - [ ] Storybook UI 확인
-- [ ] Interaction Test / Vitest Test 완료
-- [ ] Playwright 브라우저 테스트(선택)
-- [ ] 브라우저 수동 테스트
+- [ ] Storybook test (pnpm test-storybook) 완료
 
 > 테스트 결과나 캡처가 있다면 첨부해주세요.
 
