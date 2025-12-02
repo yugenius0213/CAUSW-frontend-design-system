@@ -9,11 +9,14 @@
     "test": "turbo run test",
     "test-storybook": "vitest --project=storybook",
     "lint": "turbo run lint",
+    "format": "prettier --write \"packages/**/*.{ts,tsx,js,jsx,json}\"",
+    "format:check": "prettier --check \"packages/**/*.{ts,tsx,js,jsx,json}\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build && changeset publish"
+    "release": "turbo run build && changeset publish",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
@@ -27,16 +30,21 @@
     "@storybook/test-runner": "^0.24.2",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
     "@vitest/browser-playwright": "^4.0.14",
     "@vitest/coverage-v8": "^4.0.14",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-storybook": "^10.1.2",
+    "husky": "^9.1.7",
     "jsdom": "^27.2.0",
+    "lint-staged": "^16.2.7",
     "playwright": "^1.57.0",
+    "prettier": "^3.7.3",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^10.1.2",
@@ -54,5 +62,14 @@
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=9.0.0"
+  },
+  "lint-staged": {
+    "packages/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "packages/**/*.{js,jsx,json}": [
+      "prettier --write"
+    ]
   }
 }

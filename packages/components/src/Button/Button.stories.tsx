@@ -45,9 +45,13 @@ export const Secondary: Story = {
 
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
-    await userEvent.click(await canvas.findByRole('button', { name: 'Secondary Button' }));
-    await userEvent.dblClick(await canvas.findByRole('button', { name: 'Secondary Button' }));
-  }
+    await userEvent.click(
+      await canvas.findByRole('button', { name: 'Secondary Button' }),
+    );
+    await userEvent.dblClick(
+      await canvas.findByRole('button', { name: 'Secondary Button' }),
+    );
+  },
 };
 
 export const Outline: Story = {
