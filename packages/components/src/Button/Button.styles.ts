@@ -4,14 +4,20 @@ interface ButtonStylesProps {
   fullWidth: boolean;
 }
 
-export const buttonStyles = ({ variant, size, fullWidth }: ButtonStylesProps): string => {
+export const buttonStyles = ({
+  variant,
+  size,
+  fullWidth,
+}: ButtonStylesProps): string => {
   const baseStyles = `
     inline-flex items-center justify-center
     font-medium rounded-md
     transition-colors duration-200
     focus:outline-none focus:ring-2 focus:ring-offset-2
     disabled:opacity-50 disabled:cursor-not-allowed
-  `.replace(/\s+/g, ' ').trim();
+  `
+    .replace(/\s+/g, ' ')
+    .trim();
 
   const variantStyles = {
     primary: `bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500`,
