@@ -1,3 +1,2 @@
-export * from './colors';
-export * from './spacing';
-export * from './typography';
+export { typography, colors, spacing } from './tokens';
+export { caswConfig, caswPreset } from './tailwind-config';
