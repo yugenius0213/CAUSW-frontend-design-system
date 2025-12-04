@@ -1,5 +1,11 @@
 # @causw/icons
 
+## 0.0.3
+
+### Patch Changes
+
+- 546cb8b: tailwind preset 설정 가이드라인 추가 및 storybook에도 tailwindcss 기반의 스타일 적용
+
 ## 0.0.2
 
 ### Patch Changes
