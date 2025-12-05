@@ -32,5 +32,3 @@ export const causwPreset: Partial<Config> = {
     },
   },
 };
-
-export default causwPreset;

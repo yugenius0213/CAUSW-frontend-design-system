@@ -30,5 +30,3 @@ export const causwConfig: Config = {
   ],
   presets: [causwPreset as Config],
 };
-
-export default causwConfig;
