@@ -9,15 +9,15 @@ import { typography } from '../../tokens/typography';
  * @example
  * ```ts
  * // tailwind.config.ts
- * import { caswPreset } from '@causw/design-system/tailwind-preset';
+ * import { causwPreset } from '@causw/design-system/tailwind-preset';
  *
  * export default {
- *   presets: [caswPreset],
+ *   presets: [causwPreset],
  *   content: ['./src/**\/*.{js,ts,jsx,tsx}'],
  * } satisfies Config;
  * ```
  */
-export const caswPreset: Partial<Config> = {
+export const causwPreset: Partial<Config> = {
   theme: {
     extend: {
       colors,
@@ -33,4 +33,4 @@ export const caswPreset: Partial<Config> = {
   },
 };
 
-export default caswPreset;
+export default causwPreset;

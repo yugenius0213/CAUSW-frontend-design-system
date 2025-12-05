@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import { caswPreset } from './tailwind-preset';
+import { causwPreset } from './tailwind-preset';
 
 /**
  * CAUSW Design System Tailwind CSS Configuration
@@ -15,20 +15,20 @@ import { caswPreset } from './tailwind-preset';
  * @example JS/TS config에서 사용
  * ```ts
  * // tailwind.config.ts
- * import caswConfig from '@causw/tokens/tailwind.config';
+ * import causwConfig from '@causw/tokens/tailwind.config';
  * export default {
- *   ...caswConfig,
- *   content: [...caswConfig.content, './src/**\/*.{js,ts,jsx,tsx}'],
+ *   ...causwConfig,
+ *   content: [...causwConfig.content, './src/**\/*.{js,ts,jsx,tsx}'],
  * };
  * ```
  */
-export const caswConfig: Config = {
+export const causwConfig: Config = {
   content: [
     // CAUSW 컴포넌트 패키지의 빌드된 파일 스캔
     './node_modules/@causw/components/dist/**/*.{js,mjs}',
     './node_modules/@causw/tokens/dist/**/*.{js,mjs}',
   ],
-  presets: [caswPreset as Config],
+  presets: [causwPreset as Config],
 };
 
-export default caswConfig;
+export default causwConfig;

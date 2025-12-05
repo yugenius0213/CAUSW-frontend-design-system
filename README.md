@@ -101,17 +101,17 @@ pnpm add @causw/tokens tailwindcss
 ```typescript
 // tailwind.config.ts
 import type { Config } from 'tailwindcss';
-import caswConfig from '@causw/tokens/tailwind.config';
+import causwConfig from '@causw/tokens/tailwind.config';
 
 export default {
-  ...caswConfig,
+  ...causwConfig,
   content: [
-    ...caswConfig.content,   // @causw/components, @causw/tokens 클래스 자동 포함
+    ...causwConfig.content,   // @causw/components, @causw/tokens 클래스 자동 포함
   ],
 } satisfies Config;
 ```
 
-> 💡 `caswConfig.content`에 `@causw/components`가 이미 포함되어 있습니다. 사용자 소스 경로만 추가하면 됩니다.
+> 💡 `causwConfig.content`에 `@causw/components`가 이미 포함되어 있습니다. 사용자 소스 경로만 추가하면 됩니다.
 
 **3. 사용 가능한 유틸리티 클래스**
 
