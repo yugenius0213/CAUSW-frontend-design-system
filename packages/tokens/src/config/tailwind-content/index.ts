@@ -1,2 +1,1 @@
 export { causwContent } from './tailwind-content';
-export { causwPreset } from './tailwind-preset';
