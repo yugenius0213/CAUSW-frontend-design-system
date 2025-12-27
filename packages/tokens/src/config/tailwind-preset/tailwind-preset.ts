@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
-import { borderRadius } from '../../tokens/borderRadius';
-import { colors } from '../../tokens/colors';
-import { typography } from '../../tokens/typography';
+import { borderRadius } from '../../foundations/borderRadius';
+import { colors } from '../../foundations/colors';
+import { typography } from '../../foundations/typography';
 
 /**
  * CAUSW Design System Tailwind CSS Preset

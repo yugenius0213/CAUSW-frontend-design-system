@@ -1,2 +1,2 @@
-export { typography, colors, borderRadius } from './tokens';
+export { typography, colors, borderRadius } from './foundations';
 export * from './config';
