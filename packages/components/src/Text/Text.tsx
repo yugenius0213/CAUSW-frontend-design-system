@@ -1,14 +1,20 @@
 import React from 'react';
 import { textStyles } from './Text.styles';
-import type { TextVariant, TextSize, FixedSize } from './Text.styles';
+import type {
+  TextVariant,
+  TextSize,
+  FixedSize,
+  TextColor,
+} from './Text.styles';
 
-export type { TextVariant, TextSize, FixedSize };
+export type { TextVariant, TextSize, FixedSize, TextColor };
 
 export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   variant?: TextVariant;
   size?: TextSize;
   fixedSize?: FixedSize;
   point?: boolean;
+  color?: TextColor;
   as?: 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'label';
   children: React.ReactNode;
 }
@@ -20,6 +26,7 @@ export const Text = React.forwardRef<HTMLElement, TextProps>(
       size = 'sm',
       fixedSize,
       point = false,
+      color = 'gray-700',
       as: Component = 'span',
       children,
       className = '',
@@ -27,7 +34,7 @@ export const Text = React.forwardRef<HTMLElement, TextProps>(
     },
     ref,
   ) => {
-    const classes = textStyles({ variant, size, fixedSize, point });
+    const classes = textStyles({ variant, size, fixedSize, point, color });
 
     return React.createElement(
       Component,
