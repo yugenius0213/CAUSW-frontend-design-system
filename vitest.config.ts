@@ -17,11 +17,11 @@ export default defineConfig({
     },
     projects: [{
       plugins: [
-      // The plugin will run tests for the stories defined in your Storybook config
-      // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
-      storybookTest({
-        configDir: path.join(dirname, '.storybook')
-      })],
+        // The plugin will run tests for the stories defined in your Storybook config
+        // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
+        storybookTest({
+          configDir: path.join(dirname, '.storybook')
+        })],
       test: {
         name: 'storybook',
         browser: {
@@ -32,7 +32,7 @@ export default defineConfig({
             browser: 'chromium'
           }]
         },
-        setupFiles: ['.storybook/vitest.setup.ts']
+        setupFiles: [path.join(dirname, '.storybook/vitest.setup.ts')]
       }
     }]
   }

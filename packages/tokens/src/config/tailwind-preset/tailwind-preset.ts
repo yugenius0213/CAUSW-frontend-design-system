@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
-import { colors } from '../../tokens/colors';
-import { spacing } from '../../tokens/spacing';
-import { typography } from '../../tokens/typography';
+import { borderRadius } from '../../foundations/borderRadius';
+import { colors } from '../../foundations/colors';
+import { typography } from '../../foundations/typography';
 
 /**
  * CAUSW Design System Tailwind CSS Preset
@@ -20,11 +20,12 @@ import { typography } from '../../tokens/typography';
 export const causwPreset: Partial<Config> = {
   theme: {
     extend: {
+      borderRadius,
       colors,
-      spacing,
       fontFamily: {
-        sans: typography.fontFamily.base,
+        sans: typography.fontFamily.sans,
         mono: typography.fontFamily.mono,
+        serif: typography.fontFamily.serif,
       },
       fontSize: typography.fontSize,
       fontWeight: typography.fontWeight,
