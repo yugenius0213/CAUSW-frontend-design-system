@@ -1,2 +1,2 @@
-export { typography, colors, spacing } from './tokens';
+export { typography, colors } from './tokens';
 export * from './config';

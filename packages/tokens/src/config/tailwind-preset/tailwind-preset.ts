@@ -1,6 +1,5 @@
 import type { Config } from 'tailwindcss';
 import { colors } from '../../tokens/colors';
-import { spacing } from '../../tokens/spacing';
 import { typography } from '../../tokens/typography';
 
 /**
@@ -21,7 +20,6 @@ export const causwPreset: Partial<Config> = {
   theme: {
     extend: {
       colors,
-      spacing,
       fontFamily: {
         sans: typography.fontFamily.sans,
         mono: typography.fontFamily.mono,
