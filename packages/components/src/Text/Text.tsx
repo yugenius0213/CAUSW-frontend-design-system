@@ -30,39 +30,33 @@ type FixedTextProps = {
 
 export type TextProps = BaseTextProps & (ResponsiveTextProps | FixedTextProps);
 
-export const Text = React.forwardRef<HTMLElement, TextProps>(
-  (
-    {
-      variant = 'body',
-      size = 'sm',
-      fixedSize,
-      point = false,
-      color = 'gray-700',
-      as: Component = 'span',
-      children,
-      className = '',
-      ...props
-    },
-    ref,
-  ) => {
-    const classes = textStyles({
-      variant,
-      size: size as TextSize,
-      fixedSize,
-      point,
-      color,
-    });
+export const Text = ({
+  variant = 'body',
+  size = 'sm',
+  fixedSize,
+  point = false,
+  color = 'gray-700',
+  as: Component = 'span',
+  children,
+  className = '',
+  ...props
+}: TextProps) => {
+  const classes = textStyles({
+    variant,
+    size: size as TextSize,
+    fixedSize,
+    point,
+    color,
+  });
 
-    return React.createElement(
-      Component,
-      {
-        ref,
-        className: `${classes} ${className}`.trim(),
-        ...props,
-      },
-      children,
-    );
-  },
-);
+  return React.createElement(
+    Component,
+    {
+      className: `${classes} ${className}`.trim(),
+      ...props,
+    },
+    children,
+  );
+};
 
 Text.displayName = 'Text';
