@@ -26,8 +26,10 @@
     "lint": "eslint src"
   },
   "dependencies": {
+    "@causw/icons": "workspace:*",
     "@causw/tokens": "workspace:*",
-    "@causw/icons": "workspace:*"
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.4.0"
   },
   "peerDependencies": {
     "react": ">=18"
