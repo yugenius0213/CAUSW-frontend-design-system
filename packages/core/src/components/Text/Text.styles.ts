@@ -1,3 +1,5 @@
+import { mergeStyles } from '../../utils';
+
 export type TextVariant =
   | 'caption'
   | 'body2'
@@ -284,5 +286,11 @@ export function textStyles({
     config = fixedStyles[16];
   }
 
-  return `${baseStyles} ${colorClass} ${config.fontSize} ${config.lineHeight} ${config.fontWeight}`.trim();
+  return mergeStyles([
+    baseStyles,
+    colorClass,
+    config.fontSize,
+    config.lineHeight,
+    config.fontWeight,
+  ]);
 }
