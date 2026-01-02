@@ -49,7 +49,6 @@ export const Text = ({
     point,
     textColor,
   });
-  console.log(classes);
 
   return React.createElement(
     Component,
