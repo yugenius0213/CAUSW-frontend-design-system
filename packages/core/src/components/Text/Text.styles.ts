@@ -1,16 +1,35 @@
 import { mergeStyles } from '../../utils';
 
-export type TextVariant =
-  | 'caption'
-  | 'body2'
-  | 'body'
-  | 'subtitle'
-  | 'title'
-  | 'head'
-  | 'fixed';
+// Typography preset type - format: {variant}-{size}[-point]
+export type Typography =
+  | 'caption-sm'
+  | 'caption-sm-point'
+  | 'caption-md'
+  | 'caption-md-point'
+  | 'body2-sm'
+  | 'body2-sm-point'
+  | 'body2-md'
+  | 'body2-md-point'
+  | 'body-sm'
+  | 'body-sm-point'
+  | 'body-md'
+  | 'body-md-point'
+  | 'subtitle-sm'
+  | 'subtitle-sm-point'
+  | 'subtitle-md'
+  | 'subtitle-md-point'
+  | 'title-sm'
+  | 'title-md'
+  | 'head-sm'
+  | 'head-md'
+  | 'fixed-12'
+  | 'fixed-14'
+  | 'fixed-15'
+  | 'fixed-16'
+  | 'fixed-18'
+  | 'fixed-20'
+  | 'fixed-24';
 
-export type TextSize = 'sm' | 'md';
-export type FixedSize = 12 | 14 | 15 | 16 | 18 | 20 | 24;
 export type TextColor =
   | 'gray-50'
   | 'gray-100'
@@ -50,247 +69,62 @@ const colorClasses: Record<TextColor, string> = {
   black: 'text-black-main',
 };
 
-type StyleConfig = {
-  fontSize: string;
-  lineHeight: string;
-  fontWeight: string;
-};
+// Typography preset styles mapping
+const typographyStyles: Record<Typography, string> = {
+  // Caption variants
+  'caption-sm': 'text-2xs leading-normal font-regular',
+  'caption-sm-point': 'text-2xs leading-normal font-semibold',
+  'caption-md': 'text-xs leading-normal font-medium',
+  'caption-md-point': 'text-xs leading-normal font-semibold',
 
-// Typography 스타일 매핑 (Tailwind utility classes via @causw/tokens preset)
-const variantStyles: Record<
-  Exclude<TextVariant, 'fixed'>,
-  Record<TextSize, { normal: StyleConfig; point: StyleConfig }>
-> = {
-  caption: {
-    sm: {
-      normal: {
-        fontSize: 'text-2xs',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-regular',
-      },
-      point: {
-        fontSize: 'text-2xs',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-semibold',
-      },
-    },
-    md: {
-      normal: {
-        fontSize: 'text-xs',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-medium',
-      },
-      point: {
-        fontSize: 'text-xs',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-semibold',
-      },
-    },
-  },
-  body2: {
-    sm: {
-      normal: {
-        fontSize: 'text-xs',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-regular',
-      },
-      point: {
-        fontSize: 'text-xs',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-semibold',
-      },
-    },
-    md: {
-      normal: {
-        fontSize: 'text-base',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-medium',
-      },
-      point: {
-        fontSize: 'text-base',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-semibold',
-      },
-    },
-  },
-  body: {
-    sm: {
-      normal: {
-        fontSize: 'text-base',
-        lineHeight: 'leading-tight',
-        fontWeight: 'font-regular',
-      },
-      point: {
-        fontSize: 'text-base',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-    },
-    md: {
-      normal: {
-        fontSize: 'text-lg',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-medium',
-      },
-      point: {
-        fontSize: 'text-lg',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-    },
-  },
-  subtitle: {
-    sm: {
-      normal: {
-        fontSize: 'text-lg',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-medium',
-      },
-      point: {
-        fontSize: 'text-lg',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-    },
-    md: {
-      normal: {
-        fontSize: 'text-xl',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-medium',
-      },
-      point: {
-        fontSize: 'text-xl',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-    },
-  },
-  title: {
-    sm: {
-      normal: {
-        fontSize: 'text-2xl',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-      point: {
-        fontSize: 'text-2xl',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-    },
-    md: {
-      normal: {
-        fontSize: 'text-5xl',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-      point: {
-        fontSize: 'text-5xl',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-    },
-  },
-  head: {
-    sm: {
-      normal: {
-        fontSize: 'text-4xl',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-      point: {
-        fontSize: 'text-4xl',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-    },
-    md: {
-      normal: {
-        fontSize: 'text-6xl',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-      point: {
-        fontSize: 'text-6xl',
-        lineHeight: 'leading-normal',
-        fontWeight: 'font-bold',
-      },
-    },
-  },
-};
+  // Body2 variants
+  'body2-sm': 'text-xs leading-normal font-regular',
+  'body2-sm-point': 'text-xs leading-normal font-semibold',
+  'body2-md': 'text-base leading-normal font-medium',
+  'body2-md-point': 'text-base leading-normal font-semibold',
 
-// Fixed variant 스타일
-const fixedStyles: Record<FixedSize, StyleConfig> = {
-  12: {
-    fontSize: 'text-2xs',
-    lineHeight: 'leading-normal',
-    fontWeight: 'font-medium',
-  },
-  14: {
-    fontSize: 'text-xs',
-    lineHeight: 'leading-normal',
-    fontWeight: 'font-medium',
-  },
-  15: {
-    fontSize: 'text-sm',
-    lineHeight: 'leading-normal',
-    fontWeight: 'font-semibold',
-  },
-  16: {
-    fontSize: 'text-base',
-    lineHeight: 'leading-normal',
-    fontWeight: 'font-medium',
-  },
-  18: {
-    fontSize: 'text-lg',
-    lineHeight: 'leading-normal',
-    fontWeight: 'font-medium',
-  },
-  20: {
-    fontSize: 'text-xl',
-    lineHeight: 'leading-normal',
-    fontWeight: 'font-semibold',
-  },
-  24: {
-    fontSize: 'text-3xl',
-    lineHeight: 'leading-normal',
-    fontWeight: 'font-bold',
-  },
+  // Body variants
+  'body-sm': 'text-base leading-tight font-regular',
+  'body-sm-point': 'text-base leading-normal font-bold',
+  'body-md': 'text-lg leading-normal font-medium',
+  'body-md-point': 'text-lg leading-normal font-bold',
+
+  // Subtitle variants
+  'subtitle-sm': 'text-lg leading-normal font-medium',
+  'subtitle-sm-point': 'text-lg leading-normal font-bold',
+  'subtitle-md': 'text-xl leading-normal font-medium',
+  'subtitle-md-point': 'text-xl leading-normal font-bold',
+
+  // Title variants (always bold)
+  'title-sm': 'text-2xl leading-normal font-bold',
+  'title-md': 'text-5xl leading-normal font-bold',
+
+  // Head variants (always bold)
+  'head-sm': 'text-4xl leading-normal font-bold',
+  'head-md': 'text-6xl leading-normal font-bold',
+
+  // Fixed size variants
+  'fixed-12': 'text-2xs leading-normal font-medium',
+  'fixed-14': 'text-xs leading-normal font-medium',
+  'fixed-15': 'text-sm leading-normal font-semibold',
+  'fixed-16': 'text-base leading-normal font-medium',
+  'fixed-18': 'text-lg leading-normal font-medium',
+  'fixed-20': 'text-xl leading-normal font-semibold',
+  'fixed-24': 'text-3xl leading-normal font-bold',
 };
 
 export interface TextStylesOptions {
-  variant: TextVariant;
-  size: TextSize;
-  fixedSize?: FixedSize;
-  point: boolean;
+  typography: Typography;
   textColor: TextColor;
 }
 
 export function textStyles({
-  variant,
-  size,
-  fixedSize,
-  point,
+  typography,
   textColor,
 }: TextStylesOptions): string {
   const baseStyles = 'font-sans';
   const colorClass = colorClasses[textColor];
-  let config: StyleConfig;
+  const typographyClass = typographyStyles[typography];
 
-  if (variant === 'fixed' && fixedSize) {
-    config = fixedStyles[fixedSize];
-  } else if (variant !== 'fixed') {
-    const variantConfig = variantStyles[variant][size];
-    config = point ? variantConfig.point : variantConfig.normal;
-  } else {
-    config = fixedStyles[16];
-  }
-
-  return mergeStyles([
-    baseStyles,
-    colorClass,
-    config.fontSize,
-    config.lineHeight,
-    config.fontWeight,
-  ]);
+  return mergeStyles([baseStyles, colorClass, typographyClass]);
 }
