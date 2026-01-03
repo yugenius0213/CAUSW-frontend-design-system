@@ -5,13 +5,17 @@ import { Text, type TextStyleProps } from '../Text';
 // Field Context
 interface FieldContextValue {
   id: string;
-  disabled?: boolean;
-  error?: boolean;
+  disabled: boolean;
+  error: boolean;
 }
 
 const FieldContext = createContext<FieldContextValue | null>(null);
 
-function useField() {
+/**
+ * Hook to access Field context.
+ * Returns null if not within a Field - allows input components to work independently.
+ */
+export function useFieldContext() {
   const context = useContext(FieldContext);
   if (!context) {
     throw new Error('Field compound components must be used within a Field');
@@ -56,7 +60,7 @@ const FieldLabel = ({
   as = 'label',
   ...labelProps
 }: FieldLabelProps) => {
-  const { id } = useField();
+  const { id } = useFieldContext();
 
   return (
     <Text
@@ -83,13 +87,13 @@ const FieldDescription = ({
   className,
   ...props
 }: FieldDescriptionProps) => {
-  const { id, error } = useField();
+  const { id, error } = useFieldContext();
 
   return (
     <Text
       typography="body2-sm"
       textColor={error ? 'red-400' : 'gray-400'}
-      id={`${id}-description`}
+      id={id ? `${id}-description` : undefined}
       className={className}
       {...props}
     >
