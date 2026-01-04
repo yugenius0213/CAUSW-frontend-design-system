@@ -1,8 +1,11 @@
 import React from 'react';
 import { mergeStyles } from '../../utils';
 import { useFieldContext } from '../../hooks';
+import { TextStyleProps } from '../Text';
+import { textStyles } from '../Text/Text.styles';
 
-export interface TextInputProps extends React.ComponentProps<'input'> {
+export interface TextInputProps
+  extends React.ComponentProps<'input'>, TextStyleProps {
   /** Icon to display on the left side of input */
   leftIcon?: React.ReactNode;
   /** Icon to display on the right side of input */
@@ -18,6 +21,8 @@ export const TextInput = ({
   className,
   leftIcon,
   rightIcon,
+  typography = 'body2-sm',
+  textColor = 'gray-700',
   ...props
 }: TextInputProps) => {
   // Optional Field context - works with or without Field
@@ -27,16 +32,17 @@ export const TextInput = ({
   const disabled = disabledProp ?? field?.disabled ?? false;
   const error = errorProp ?? field?.error ?? false;
 
+  const classes = textStyles({ typography, textColor });
+
   const inputStyles = mergeStyles(
-    'flex-1 w-full bg-transparent outline-none',
-    'typo-body-sm',
-    'text-gray-700 placeholder:text-gray-400',
+    'w-full',
+    'placeholder:text-gray-400',
     'caret-gray-600',
   );
 
   const wrapperStyles = mergeStyles(
     'flex items-center gap-3',
-    'rounded-md px-4 py-3',
+    'rounded-md p-4',
     'bg-white',
     'focus-within:ring-2 focus-within:ring-gray-600',
     disabled && 'cursor-not-allowed bg-gray-100 opacity-50',
@@ -49,7 +55,12 @@ export const TextInput = ({
       {leftIcon && (
         <span className="flex-shrink-0 text-gray-400">{leftIcon}</span>
       )}
-      <input id={id} disabled={disabled} className={inputStyles} {...props} />
+      <input
+        id={id}
+        disabled={disabled}
+        className={mergeStyles(inputStyles, classes)}
+        {...props}
+      />
       {rightIcon && (
         <span className="flex-shrink-0 text-gray-400">{rightIcon}</span>
       )}
