@@ -35,7 +35,7 @@ export const TextInput = ({
   const classes = textStyles({ typography, textColor });
 
   const inputStyles = mergeStyles(
-    'w-full',
+    'w-full outline-none',
     'placeholder:text-gray-400',
     'caret-gray-600',
   );
