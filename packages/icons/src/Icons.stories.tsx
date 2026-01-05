@@ -13,6 +13,48 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// 아이콘 이름 목록
+const monoIconNames = Object.keys(MonoIcons) as (keyof typeof MonoIcons)[];
+const coloredIconNames = Object.keys(
+  ColoredIcons,
+) as (keyof typeof ColoredIcons)[];
+const allIconNames = [...monoIconNames, ...coloredIconNames];
+
+// Playground
+export const Playground: Story = {
+  args: {
+    icon: 'Heart',
+    size: 24,
+    active: false,
+  },
+  argTypes: {
+    icon: {
+      control: 'select',
+      options: allIconNames,
+      description: '아이콘 선택',
+    },
+    size: {
+      control: { type: 'range', min: 16, max: 64, step: 4 },
+      description: '아이콘 크기',
+    },
+    active: {
+      control: 'boolean',
+      description: '활성 상태 (mono만 적용)',
+    },
+  },
+  render: ({ icon, size, active }) => {
+    const isColored = (icon as string).endsWith('Colored');
+
+    if (isColored) {
+      const Icon = ColoredIcons[icon as keyof typeof ColoredIcons];
+      return <Icon size={size} />;
+    }
+
+    const Icon = MonoIcons[icon as keyof typeof MonoIcons];
+    return <Icon size={size} active={active} />;
+  },
+};
+
 // Mono 아이콘 전체 갤러리 (비활성)
 export const MonoIconGallery: Story = {
   render: () => (
