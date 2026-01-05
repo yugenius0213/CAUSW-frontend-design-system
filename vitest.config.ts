@@ -14,7 +14,13 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['react', 'react-dom'],
+    include: [
+      'react',
+      'react-dom',
+      'react/jsx-runtime',
+      'react/jsx-dev-runtime',
+      'react-dom/client',
+    ],
   },
   test: {
     globals: true,
@@ -25,6 +31,21 @@ export default defineConfig({
       reporter: ['text', 'json', 'html']
     },
     projects: [{
+      resolve: {
+        alias: {
+          react: path.resolve(dirname, 'node_modules/react'),
+          'react-dom': path.resolve(dirname, 'node_modules/react-dom'),
+        },
+      },
+      optimizeDeps: {
+        include: [
+          'react',
+          'react-dom',
+          'react/jsx-runtime',
+          'react/jsx-dev-runtime',
+          'react-dom/client',
+        ],
+      },
       plugins: [
         // The plugin will run tests for the stories defined in your Storybook config
         // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
