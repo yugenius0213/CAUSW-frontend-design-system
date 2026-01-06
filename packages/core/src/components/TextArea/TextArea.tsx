@@ -35,7 +35,7 @@ const TextAreaInput = ({
   ...props
 }: TextAreaInputProps) => {
   const textareaStyles = mergeStyles(
-    'w-full bg-transparent outline-none',
+    'w-full min-w-0 min-h-10 bg-transparent outline-none',
     'typo-body-sm',
     'text-gray-700 placeholder:text-gray-400',
     'caret-gray-600',
