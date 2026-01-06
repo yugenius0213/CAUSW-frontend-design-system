@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { mergeStyles } from '../../utils';
+import { mergeStyles, PolymorphicProps } from '../../utils';
 import { Text, TextStyleProps } from '../Text';
+import { TextElement } from '../Text/Text';
 
 // Toggle Context
 interface ToggleContextValue {
@@ -101,22 +102,21 @@ const ToggleSwitch = () => {
 };
 
 // Toggle.Label
-export interface ToggleLabelProps
-  extends React.ComponentProps<'span'>, TextStyleProps {
-  children: React.ReactNode;
-}
+export type ToggleLabelProps<E extends TextElement = 'span'> = PolymorphicProps<
+  E,
+  TextStyleProps
+>;
 
-const ToggleLabel = ({
+const ToggleLabel = <E extends TextElement = 'span'>({
   children,
   typography = 'fixed-16',
   textColor = 'gray-700',
   ...props
-}: ToggleLabelProps) => {
+}: ToggleLabelProps<E>) => {
   const { disabled } = useToggleContext();
 
   return (
     <Text
-      as="span"
       typography={typography}
       textColor={disabled ? 'gray-400' : textColor}
       {...props}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { mergeStyles } from '../../utils';
+import { mergeStyles, PolymorphicProps } from '../../utils';
 import { Text, TextStyleProps } from '../Text';
+import { TextElement } from '../Text/Text';
 
 // Checkbox Context
 interface CheckboxContextValue {
@@ -114,22 +115,19 @@ const CheckboxIndicator = () => {
 };
 
 // Checkbox.Label
-export interface CheckboxLabelProps
-  extends React.ComponentProps<'span'>, TextStyleProps {
-  children: React.ReactNode;
-}
+export type CheckboxLabelProps<E extends TextElement = 'span'> =
+  PolymorphicProps<E, TextStyleProps>;
 
-const CheckboxLabel = ({
+const CheckboxLabel = <E extends TextElement = 'span'>({
   children,
   typography = 'body-sm',
   textColor = 'gray-600',
   ...props
-}: CheckboxLabelProps) => {
+}: CheckboxLabelProps<E>) => {
   const { disabled } = useCheckboxContext();
 
   return (
     <Text
-      as="span"
       typography={typography}
       textColor={disabled ? 'gray-400' : textColor}
       {...props}
