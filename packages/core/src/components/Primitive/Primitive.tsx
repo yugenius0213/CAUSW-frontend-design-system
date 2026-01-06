@@ -13,7 +13,7 @@ type PrimitivePropsWithRef<E extends React.ElementType> =
   React.ComponentProps<E> & PrimitiveProps;
 
 function createPrimitive<E extends React.ElementType>(node: E) {
-  const Node = (props: PrimitivePropsWithRef<React.ElementType>) => {
+  const Node = (props: PrimitivePropsWithRef<E>) => {
     const { asChild, ...primitiveProps } = props;
     const Comp = asChild ? Slot : node;
 
