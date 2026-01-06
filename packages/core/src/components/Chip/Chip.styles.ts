@@ -5,11 +5,11 @@ export type ChipAppearance = 'solid' | 'outline';
 export type ChipColor = 'white' | 'lightgray' | 'darkgray';
 
 const baseStyles =
-  'inline-flex items-center gap-1 rounded-full select-none whitespace-nowrap transition-colors';
+  'inline-flex items-center gap-1 rounded-[12px] select-none whitespace-nowrap transition-colors ';
 
 const sizeStyles: Record<ChipSize, string> = {
-  sm: 'px-2 py-0.5 text-xs',
-  md: 'px-3 py-1 text-sm',
+  sm: 'px-2 py-1 typo-fixed-14',
+  md: 'px-[14px] py-[6px] typo-fixed-16',
 };
 
 const colorStyles: Record<ChipColor, Record<ChipAppearance, string>> = {
@@ -18,7 +18,7 @@ const colorStyles: Record<ChipColor, Record<ChipAppearance, string>> = {
     outline: 'border border-gray-300 text-gray-700',
   },
   lightgray: {
-    solid: 'bg-[#F5F6F8] text-gray-600',
+    solid: 'bg-[#F5F6F8] text-gray-500',
     outline: 'border border-gray-300 text-gray-600',
   },
   darkgray: {
@@ -46,14 +46,14 @@ export function chipStyles({
     baseStyles,
     sizeStyles[size],
     colorStyles[color][appearance],
-    disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-default',
+    disabled ? 'cursor-not-allowed' : 'cursor-default',
     selected ? 'ring-2 ring-gray-600 ring-offset-1' : '',
   );
 }
 
 export function chipIconStyles(disabled?: boolean) {
   return mergeStyles(
-    'ml-1 inline-flex items-center justify-center',
-    disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer',
+    'inline-flex items-center justify-center',
+    disabled ? 'cursor-not-allowed' : 'cursor-pointer',
   );
 }

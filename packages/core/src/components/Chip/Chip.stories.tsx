@@ -33,7 +33,7 @@ export const RoleVariants: Story = {
   name: 'Variants (role)',
   render: () => (
     <div className="flex gap-2">
-      <Chip variant="default">Default</Chip>
+      <Chip>Text</Chip>
       <Chip variant="dropdown">Dropdown</Chip>
       <Chip variant="closable">Closable</Chip>
     </div>
@@ -61,9 +61,9 @@ export const Sizes: Story = {
 export const Colors: Story = {
   render: () => (
     <div className="flex gap-2">
-      <Chip color="white">White</Chip>
-      <Chip color="lightgray">Light Gray</Chip>
-      <Chip color="darkgray">Dark Gray</Chip>
+      <Chip color="white">text</Chip>
+      <Chip color="lightgray">text</Chip>
+      <Chip color="darkgray">text</Chip>
     </div>
   ),
 };

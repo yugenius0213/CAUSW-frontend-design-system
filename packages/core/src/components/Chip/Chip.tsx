@@ -72,6 +72,8 @@ export const Chip = ({
       <CloseIcon />
     ) : null;
 
+  const innerGap = variant === 'dropdown' ? 'gap-2' : 'gap-1';
+
   return (
     <Primitive.span
       asChild={asChild}
@@ -79,7 +81,7 @@ export const Chip = ({
       className={mergeStyles(classes, className)}
       {...props}
     >
-      <span className="inline-flex items-center gap-1">
+      <span className={mergeStyles('inline-flex items-center', innerGap)}>
         {leftIcon}
 
         <span>{children}</span>
