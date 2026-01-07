@@ -86,18 +86,24 @@ export const Chip = ({
 
           {finalRightIcon &&
             (variant === 'closable' ? (
-              <button
-                type="button"
+              <span
+                role="button"
+                tabIndex={disabled ? -1 : 0}
                 className={chipIconStyles(disabled)}
-                disabled={disabled}
                 aria-label="remove"
                 onClick={(e) => {
                   e.stopPropagation();
-                  onRemove?.();
+                  if (!disabled) onRemove?.();
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onRemove?.();
+                  }
                 }}
               >
                 {finalRightIcon}
-              </button>
+              </span>
             ) : (
               <span className={chipIconStyles(disabled)}>{finalRightIcon}</span>
             ))}
