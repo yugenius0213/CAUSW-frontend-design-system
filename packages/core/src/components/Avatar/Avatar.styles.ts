@@ -14,11 +14,10 @@ export function resolveAvatarPreset(variant: AvatarVariant) {
   return avatarPreset[variant];
 }
 
-export function avatarRootStyles(disabled?: boolean) {
+export function avatarRootStyles() {
   return mergeStyles(
     'inline-flex items-center justify-center overflow-hidden',
     'bg-gray-100 text-gray-600',
-    disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-default',
   );
 }
 
