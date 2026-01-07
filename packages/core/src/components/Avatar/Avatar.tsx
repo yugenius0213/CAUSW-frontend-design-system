@@ -9,7 +9,10 @@ import {
 import { mergeStyles } from '../../utils';
 import DEFAULT_AVATAR_SRC from '../../assets/avatar/default.jpeg';
 
-export interface AvatarProps extends React.ComponentPropsWithoutRef<'span'> {
+export interface AvatarProps extends Omit<
+  React.ComponentPropsWithoutRef<'span'>,
+  'alt'
+> {
   variant?: AvatarVariant;
   src?: string;
   alt?: string;
@@ -19,6 +22,7 @@ export interface AvatarProps extends React.ComponentPropsWithoutRef<'span'> {
 export const Avatar = ({
   variant = 'md',
   src,
+  alt,
   asChild,
   className,
   ...props
@@ -36,7 +40,7 @@ export const Avatar = ({
     >
       <img
         src={hasSrc ? src : DEFAULT_AVATAR_SRC}
-        alt={hasSrc ? 'user profile' : 'default avatar'}
+        alt={alt ?? (hasSrc ? 'user profile' : 'default avatar')}
         className={avatarImageStyles()}
       />
     </Primitive.span>
